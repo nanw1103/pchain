@@ -43,7 +43,6 @@ Chain promises:
     }
 
     pchain([
-
       step1,
       step2,
       step3,

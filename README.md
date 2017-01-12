@@ -28,7 +28,7 @@ Chain promises:
       return new Promise((resolve, reject) => {
         console.log('step3: Random resolve or reject');
         
-		if (Date.now() % 2)
+        if (Date.now() % 2)
           resolve();
         else
           reject('unlucky');

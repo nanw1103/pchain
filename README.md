@@ -10,6 +10,19 @@ Chain promises:
 
     var pchain = require('pchain');
 
+    pchain([
+        step1,
+        step2,
+        step3,
+        step4
+
+    ]).then((data) => {
+        console.log('All set:', data);
+	  
+    }).catch((err) => {
+        console.log('Demo something wrong:', err);
+    });
+	
     function step1() {
         return new Promise((resolve, reject) => {
             console.log('step1');
@@ -42,18 +55,6 @@ Chain promises:
         });
     }
 
-    pchain([
-        step1,
-        step2,
-        step3,
-        step4
-
-    ]).then((data) => {
-        console.log('All set:', data);
-	  
-    }).catch((err) => {
-        console.log('Demo something wrong:', err);
-    });
 
   
 A parameter can also be specified for the first step function:

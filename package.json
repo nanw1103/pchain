@@ -1,0 +1,20 @@
+{
+  "name": "pchain",
+  "version": "1.0.0",
+  "description": "Lightweight function to chain execution of multiple Promises, return a promise which rejects on any rejection and resolves when the last given Promise is resolved.",
+  "main": "pchain.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nanw1103/pchain"
+  },
+  "keywords": [
+    "promise",
+    "sequence",
+    "chain"
+  ],
+  "author": "nanw",
+  "license": "ISC"
+}

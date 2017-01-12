@@ -2,7 +2,7 @@ pchain
 ==========================
 
 pchain is a lightweight nodejs module. It chains the execution of multiple Promises, return a promise which 
-rejects on any rejection and resolves when the last given Promise is resolved.
+rejects on the first rejection, or resolves when the last Promise is resolved.
 
 Example
 ------------------------------------------

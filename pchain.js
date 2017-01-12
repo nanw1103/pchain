@@ -1,4 +1,4 @@
-module.exports = function(tasks, initData) {
+var all = function(tasks, initData) {
 	if (!Array.isArray(tasks))
 		throw 'pchain: The specified parameter is not an array.';
 
@@ -23,3 +23,7 @@ module.exports = function(tasks, initData) {
 		doTask(initData);
 	});
 }
+
+var pchain = all;
+
+module.exports = pchain;

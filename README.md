@@ -45,7 +45,7 @@ Chain promises:
     pchain([
         step1,
         step2,
-        vstep3,
+        step3,
         step4
 
     ]).then((data) => {

@@ -1,12 +1,14 @@
 pchain
 ==========================
 
-pchain is a lightweight nodejs module. It chains the execution of multiple Promises, return a promise which 
-rejects on the first rejection, or resolves when the last Promise is resolved.
+pchain ensures execution sequence of multiple Promises, return a promise which 
+rejects on the first rejection, or resolves when the last Promise is resolved. 
+
+Also, resolved data from a step is passed to the next step function as input parameter.
 
 Example
 ------------------------------------------
-Chain functions which return promises. Resolved data from a step will be passed into the following step as function parameter:
+Chain promises, or functions which return promise. Resolved data from a Promise will be passed to next step as function parameter, if the next step is a function:
 
     var pchain = require('pchain');
 

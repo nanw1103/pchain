@@ -6,7 +6,7 @@ rejects on the first rejection, or resolves when the last Promise is resolved.
 
 Example
 ------------------------------------------
-Chain promises:
+Chain functions which return promises. Resolved data from a step will be passed into the following step as function parameter:
 
     var pchain = require('pchain');
 
@@ -57,25 +57,23 @@ Chain promises:
 
 
   
-A parameter can also be specified for the first step function:
+If any value is not a function but an object, it will be pased to the next step as parameter as well:
 
     pchain([
+		'Parameter for the next step',
         step1,
         step2
-    ], 'Parameter for the first step').then((data) => {
+    ]).then((data) => {
         ...
     }).catch((err) => {
         ...
     });
   
 
-The elements in the input task array can be either functions which generate Promise objects, or Promise objects directly:
+Enable verbose debug:
 
-    pchain([
-        step1(),
-        step3()
-    ]).then((data) => {
-        ...
-    }).catch((err) => {
-        ...
-    });
+	pchain.debug();
+	
+or
+
+	pchain = require('pchain').debug();

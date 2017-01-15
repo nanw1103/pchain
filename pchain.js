@@ -23,9 +23,6 @@ var all = function(tasks) {
 				console.log('pchain:', msg);
 			}
 			
-			if (typeof t.then === 'function')
-				throw 'Promise object is specified directly in pchain parameter array at: index=' + (i-1) + '. In most of the cases this is a logic error, because the generated Promise could have already been completed, and pchain can not assure execution sequence. Specify the function which generates Promise object as pchain parameter array element.';
-				
 			var p = typeof t === 'function' ? t(data) : t;
 
 			if (typeof p === 'undefined') {

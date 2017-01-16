@@ -1,10 +1,10 @@
 {
   "name": "pchain",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "Lightweight function to chain execution of multiple Promises, return a promise which rejects on the first rejection, or resolves when the last Promise is resolved.",
   "main": "pchain.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node test.js"
   },
   "repository": {
     "type": "git",

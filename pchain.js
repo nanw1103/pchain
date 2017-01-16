@@ -1,9 +1,11 @@
 var _debug = false;
 
-var all = function(tasks) {
+var all = function(tasks, chainName) {
+	
+	var prefix = chainName ? '\npchain - ' + chainName + ': ' : '\npchain: ';
 	
 	if (!Array.isArray(tasks))
-		throw 'pchain: The specified tasks parameter is not an array.';
+		throw prefix + 'The specified tasks parameter is not an array.';
 
 	var i = 0;
 	return new Promise((resolve, reject) => {
@@ -11,7 +13,7 @@ var all = function(tasks) {
 		function doTask(data) {
 			
 			if (i >= tasks.length) {
-				_debug && console.log('pchain: RESOLVE - ', data);
+				_debug && console.log(prefix + 'RESOLVE - ', data);
 				resolve(data);
 				return;
 			}
@@ -20,7 +22,7 @@ var all = function(tasks) {
 			var msg;
 			if (_debug) {
 				msg = 'index=' + (i - 1) + ', func=' + (t.name || '<anonymous>') + ((typeof data === 'undefined') ? '' : (', data=' + data));
-				console.log('pchain:', msg);
+				console.log(prefix + msg);
 			}
 			
 			var p = typeof t === 'function' ? t(data) : t;
@@ -38,7 +40,7 @@ var all = function(tasks) {
 			p.then((data) => {
 				setTimeout(() => { doTask(data) }, 0);				
 			}, (err) => {
-				_debug && console.log('pchain: REJECT - ', err, msg);
+				_debug && console.log(prefix + 'REJECT - ', err);
 				reject(err);
 			});
 		}
